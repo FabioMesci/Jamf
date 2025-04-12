@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel=stylesheet href="{{ url_for('static', filename='header.css') }}">
+  	<link rel="stylesheet" href="{{ url_for('static', filename='lista_empleados.css') }}">
+	<title>Lista de clientes</title>
+</head>
+<header>
+    <div class="header-section container-header">
+        <img class="logo" src="{{ url_for('static', filename='jamf.png') }}" alt="">
+        <a href="{{ url_for('LoginScreen') }}"><button type="submit" class="btn-header">Cerrar sesión</button></a>
+        <a href="{{ url_for('AdminScreen') }}"><button type="submit" class="btn-header">Volver</button></a>
+    </div>
+</header>
+<body>
+	<div class="container">
+      <h1>Lista de clientes</h1>
+	  <table class="table table-bordered">
+		<tbody>
+		  <tr>
+		  	<th>ID</th>
+		    <th>Email</th>
+		    <th>Usuario</th>
+		    <th>Cedula</th>
+		    <th>Opciones</th>
+		  </tr>
+		 {% for u in users %}
+		  <tr>
+		    <td>{{u.id}}</td>
+		    <td>{{u.email}}</td>
+		    <td>{{u.username}}</td>
+		    <td>{{u.ci}}</td>
+			<td><a href="{{url_for('DeleteEmployee', id=u.id)}}" class="btn btn-danger btn-sm">Borrar</a></td>
+		  </tr>
+		 {% endfor %}
+		  </tbody>
+		</table>
+    </div>
+</body>
+</html>

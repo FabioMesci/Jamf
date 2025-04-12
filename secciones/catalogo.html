@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='cart.png') }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamf Café</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+    
+</head>
+<body>
+    <header>
+        <div class="header-section container-header">
+            <img class="logo" src="{{ url_for('static', filename='jamf.png') }}" alt="">
+            <a href="{{ url_for('LoginScreen') }}"><button type="submit" class="btn-header">Cerrar sesión</button></a>
+            <a href="{{ url_for('ClientScreen') }}"><button type="submit" class="btn-header">Volver</button></a>
+            <a href="{{ url_for('CartScreen') }}" id="carrito">
+                <img class=cart src="{{ url_for('static', filename='cart.png') }}" alt="">
+            </a>
+            <p>El ID de tu pedido es: {{ ID }}</p>
+            <div class="cart-products" id="products-id" style="height: 500px; width: fit-content; overflow: scroll;">
+                <p class="close-btn" onclick="closeBtn()">X</p>
+
+                <div class="card-items">
+                    
+                </div>
+                <h2>Total: $<strong class="price-total">0</strong></h2>
+            </div>
+        </div>
+    </header>
+    <h1>Catalogo</h1>
+    <section class="container">
+        <div class="products">
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='americano.png') }}" alt="">
+                        <p><span>2</span>$</p>
+                    </div>
+                    <p class="title" name="producto">Café americano</p>
+                    <button href="{{ url_for('ProductList') }}" type=submit data-id="1" class="btn-add-cart">Añadir al carrito</button>
+                    <input hidden name=precio value=2></input>
+                    <input hidden name=producto value="Café americano"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='cafeconleche.png') }}" alt="">
+                        <p><span>2.5</span>$</p>
+                    </div>
+                    <p class="title">Café con leche</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="2">Añadir al carrito</button>
+                    <input hidden name=precio value=2.5></input>
+                    <input hidden name=producto value="Café con leche"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='Capuchino.png') }}" alt="">
+                        <p><span>3</span>$</p>
+                    </div>
+                    <p class="title">Capuchino</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="3">Añadir al carrito</button>
+                    <input hidden name=precio value=3></input>
+                    <input hidden name=producto value="Capuchino"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='latte.png') }}" alt="">
+                        <p><span>3.5</span>$</p>
+                    </div>
+                    <p class="title">Latte</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="4">Añadir al carrito</button>
+                    <input hidden name=precio value=3.5></input>
+                    <input hidden name=producto value="Latte"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='mocaccino.png') }}" alt="">
+                        <p><span>3.5</span>$</p>
+                    </div>
+                    <p class="title">Mocha</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="5">Añadir al carrito</button>
+                    <input hidden name=precio value=3.5></input>
+                    <input hidden name=producto value="Mocha"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='espresso.png') }}" alt="">
+                        <p><span>2</span>$</p>
+                    </div>
+                    <p class="title">Espresso</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="6">Añadir al carrito</button>
+                    <input hidden name=precio value=2></input>
+                    <input hidden name=producto value="Espresso"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='doppio.png') }}" alt="">
+                        <p><span>2.5</span>$</p>
+                    </div>
+                    <p class="title">Doble espresso</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="7">Añadir al carrito</button>
+                    <input hidden name=precio value=2.5></input>
+                    <input hidden name=producto value="Doble espresso"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='macchiato.png') }}" alt="">
+                        <p><span>3</span>$</p>
+                    </div>
+                    <p class="title">Macchiato</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="8">Añadir al carrito</button>
+                    <input hidden name=precio value=3></input>
+                    <input hidden name=producto value="Macchiato"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='cortado.png') }}" alt="">
+                        <p><span>3.5</span>$</p>
+                    </div>
+                    <p class="title">Cortado</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="9">Añadir al carrito</button>
+                    <input hidden name=precio value=3.5></input>
+                    <input hidden name=producto value="Cortado"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='icecoffee.png') }}" alt="">
+                        <p><span>4</span>$</p>
+                    </div>
+                    <p class="title">Café con hielo</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="10">Añadir al carrito</button>
+                    <input hidden name=precio value=4></input>
+                    <input hidden name=producto value="Café con hielo"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='frappé.png') }}" alt="">
+                        <p><span>4.5</span>$</p>
+                    </div>
+                    <p class="title">Frappé</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="11">Añadir al carrito</button>
+                    <input hidden name=precio value=4.5></input>
+                    <input hidden name=producto value="Frappé"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='te.png') }}" alt="">
+                        <p><span>2</span>$</p>
+                    </div>
+                    <p class="title">Té</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="12">Añadir al carrito</button>
+                    <input hidden name=precio value=2></input>
+                    <input hidden name=producto value="Té"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='chocolate.png') }}" alt="">
+                        <p><span>3.5</span>$</p>
+                    </div>
+                    <p class="title">Chocolate caliente</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="13">Añadir al carrito</button>
+                    <input hidden name=precio value=3.5></input>
+                    <input hidden name=producto value="Chocolate caliente"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='naranja.png') }}" alt="">
+                        <p><span>2</span>$</p>
+                    </div>
+                    <p class="title">Jugo de Naranja</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="14">Añadir al carrito</button>
+                    <input hidden name=precio value=2></input>
+                    <input hidden name=producto value="Jugo de naranja"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='croissant.png') }}" alt="">
+                        <p><span>3</span>$</p>
+                    </div>
+                    <p class="title">Croissant</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="15">Añadir al carrito</button>
+                    <input hidden name=precio value=3></input>
+                    <input hidden name=producto value="Croissant"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='muffin.png') }}" alt="">
+                        <p><span>2.5</span>$</p>
+                    </div>
+                    <p class="title">Muffin</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="16">Añadir al carrito</button>
+                    <input hidden name=precio value=2.5></input>
+                    <input hidden name=producto value="Muffin"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='panini.png') }}" alt="">
+                        <p><span>4</span>$</p>
+                    </div>
+                    <p class="title">Panini</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="17">Añadir al carrito</button>
+                    <input hidden name=precio value=4></input>
+                    <input hidden name=producto value="Panini"></input>   
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='sandwich.png') }}" alt="">
+                        <p><span>5</span>$</p>                   
+                    </div>
+                    <p class="title">Sandwich</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="18">Añadir al carrito</button>
+                    <input hidden name=precio value=5></input>
+                    <input hidden name=producto value="Sandwich"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='frutas.png') }}" alt="">
+                        <p><span>3</span>$</p>
+                    </div>
+                    <p class="title">Ensalada de frutas</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="19">Añadir al carrito</button>
+                    <input hidden name=precio value=3></input>
+                    <input hidden name=producto value="Ensalada de frutas"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='galleta.png') }}" alt="">
+                        <p><span>1</span>$</p>
+                    </div>
+                    <p class="title">Galletas</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="20">Añadir al carrito</button>
+                    <input hidden name=precio value=1></input>
+                    <input hidden name=producto value="Galletas"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='zanahoria.png') }}" alt="">
+                        <p><span>5</span>$</p>
+                    </div>
+                    <p class="title">Pastel de zanahoria</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="21">Añadir al carrito</button>
+                    <input hidden name=precio value=5></input>
+                    <input hidden name=producto value="Pastel de zanahoria"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='brownie.png') }}" alt="">
+                        <p><span>4</span>$</p>
+                    </div>
+                    <p class="title">Brownie</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="22">Añadir al carrito</button>
+                    <input hidden name=precio value=4></input>
+                    <input hidden name=producto value="Brownie"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='cheesecake.png') }}" alt="">
+                        <p><span>5</span>$</p>
+                    </div>
+                    <p class="title">Cheesecake</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="23">Añadir al carrito</button>
+                    <input hidden name=precio value=5></input>
+                    <input hidden name=producto value="Cheesecake"></input>
+                </form>
+            </div>
+            <div class="carts">
+                <form action="/AddToCart" method="POST">
+                    <div>
+                        <img src="{{ url_for('static', filename='donut.png') }}" alt="">
+                        <p><span>2.5</span>$</p>
+                    </div>
+                    <p class="title">Donut</p>
+                    <button href="{{ url_for('ProductList') }}" class="btn-add-cart" data-id="13">Añadir al carrito</button>
+                    <input hidden name=precio value=2.5></input>
+                    <input hidden name=producto value="Donut"></input>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showCart(x){
+            document.getElementById("products-id").style.display = "block";
+        }
+        function closeBtn(){
+             document.getElementById("products-id").style.display = "none";
+        }
+
+    </script>
+    <script src="./custom.js" ></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+body {
+    background-color: #A47E3B;
+  }
+
+  #container {
+    padding-top: 50px;
+  }
+h1, p{
+    color: white;
+}
+a:hover{
+    text-decoration: none;
+}
+  .card {
+    transition: 0.5s ease;
+    background-color: #E6B325;
+    border-color:#61481C;
+    color: #61481C;
+    padding: 1.5rem;
+    margin: 50px 500px;
+  }
+
+  .card:hover{
+    transform: scale(1.5);
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.3);
+  }
+  .header-section p{
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    background-color: #BF9742;
+    padding: 5px 6px;
+    border-radius: 5px;
+    color: #61481C;
+    font-weight: 700;
+    font-family: system-ui;
+    line-height: 18px;
+    font-size: x-large;
+}

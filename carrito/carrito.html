@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/svg+xml" href="./images/cart.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamf Café</title>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body>
+    <header>
+        <div class="header-section container">
+            <img class="logo" src="./images/jamf.png" alt="">
+            <div style="margin-right:15px;">
+                <img onclick="showCart(this)" class="cart" src="./images/cart.png" alt="">
+                <p class="count-product">0</p>
+            </div>
+            <div class="cart-products" id="products-id" style="height: 500px; width: fit-content; overflow: scroll;">
+                <p class="close-btn" onclick="closeBtn()">X</p>
+                <h3>Mi carrito</h3>
+                <div class="card-items">
+                    
+                </div>
+                <h2>Total: $<strong class="price-total">0</strong></h2>
+            </div>
+        </div>
+    </header>
+    <section class="container">
+        <div class="products">
+            <div class="carts">
+                <div>
+                    <img src="./images/products/americano.png" alt="">
+                    <p><span>2</span>$</p>
+                </div>
+                <p class="title">Café americano</p>
+                <a href="" data-id="1" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/cafeconleche.png" alt="">
+                    <p><span>2.5</span>$</p>
+                </div>
+                <p class="title">Café con leche</p>
+                <a href="" class="btn-add-cart" data-id="2">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/Capuchino.png" alt="">
+                    <p><span>3</span>$</p>
+                </div>
+                <p class="title">Capuchino</p>
+                <a href="" data-id="3" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/latte.png" alt="">
+                    <p><span>3.5</span>$</p>
+                </div>
+                <p class="title">Latte</p>
+                <a href="" data-id="4" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/mocaccino.png" alt="">
+                    <p><span>3.5</span>$</p>
+                </div>
+                <p class="title">Mocha</p>
+                <a href="" data-id="5" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/espresso.png" alt="">
+                    <p><span>2</span>$</p>
+                </div>
+                <p class="title">Espresso</p>
+                <a href="" data-id="6" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/doppio.png" alt="">
+                    <p><span>2.5</span>$</p>
+                </div>
+                <p class="title">Doble espresso</p>
+                <a href="" data-id="7" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/macchiato.png" alt="">
+                    <p><span>3</span>$</p>
+                </div>
+                <p class="title">Macchiato</p>
+                <a href="" data-id="8" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/cortado.png" alt="">
+                    <p><span>3.5</span>$</p>
+                </div>
+                <p class="title">Cortado</p>
+                <a href="" data-id="9" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/icecoffee.png" alt="">
+                    <p><span>4</span>$</p>
+                </div>
+                <p class="title">Café con hielo</p>
+                <a href="" data-id="10" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/frappé.png" alt="">
+                    <p><span>4.5</span>$</p>
+                </div>
+                <p class="title">Frappé</p>
+                <a href="" data-id="11" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/te.png" alt="">
+                    <p><span>2</span>$</p>
+                </div>
+                <p class="title">Té</p>
+                <a href="" data-id="12" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/chocolate.png" alt="">
+                    <p><span>3.5</span>$</p>
+                </div>
+                <p class="title">Chocolate Caliente</p>
+                <a href="" data-id="13" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/naranja.png" alt="">
+                    <p><span>2</span>$</p>
+                </div>
+                <p class="title">Jugo de Naranja</p>
+                <a href="" data-id="14" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/croissant.png" alt="">
+                    <p><span>3</span>$</p>
+                </div>
+                <p class="title">Croissant</p>
+                <a href="" data-id="15" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/muffin.png" alt="">
+                    <p><span>2.5</span>$</p>
+                </div>
+                <p class="title">Muffin</p>
+                <a href="" data-id="16" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/panini.png" alt="">
+                    <p><span>4</span>$</p>
+                </div>
+                <p class="title">Panini</p>
+                <a href="" data-id="17" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/sandwich.png" alt="">
+                    <p><span>5</span>$</p>
+                </div>
+                <p class="title">Sandwich</p>
+                <a href="" data-id="18" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/frutas.png" alt="">
+                    <p><span>3</span>$</p>
+                </div>
+                <p class="title">Ensalada de frutas</p>
+                <a href="" data-id="19" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/galleta.png" alt="">
+                    <p><span>1</span>$</p>
+                </div>
+                <p class="title">Galletas</p>
+                <a href="" data-id="20" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/zanahoria.png" alt="">
+                    <p><span>5</span>$</p>
+                </div>
+                <p class="title">Pastel de zanahoria</p>
+                <a href="" data-id="21" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/brownie.png" alt="">
+                    <p><span>4</span>$</p>
+                </div>
+                <p class="title">Brownie</p>
+                <a href="" data-id="22" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/cheesecake.png" alt="">
+                    <p><span>5</span>$</p>
+                </div>
+                <p class="title">Cheesecake</p>
+                <a href="" data-id="23" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./images/products/donut.png" alt="">
+                    <p><span>2.5</span>$</p>
+                </div>
+                <p class="title">Donut</p>
+                <a href="" data-id="24" class="btn-add-cart">add to cart</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showCart(x){
+            document.getElementById("products-id").style.display = "block";
+        }
+        function closeBtn(){
+             document.getElementById("products-id").style.display = "none";
+        }
+
+    </script>
+    <script src="./custom.js" ></script>
+</body>
+</html>

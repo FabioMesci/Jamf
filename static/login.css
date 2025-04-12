@@ -1,0 +1,44 @@
+:root {
+    --primary-color: #61481C;
+    --secondary-color: #A47E3B;
+    --accent-color: #BF9742;
+    --highlight-color: #E6B325;
+  }
+body {
+background-color: var(--secondary-color);
+}
+
+h1, h4, label {
+color: white;
+}
+
+input[type=text], input[type=password] {
+background-color: white;
+color: rgb(0, 0, 0);
+border-color: var(--secondary-color);
+}
+.btn-primary {
+background-color: var(--secondary-color);
+color: white;
+border-color: var(--secondary-color);
+}
+.btn-secondary {
+background-color: var(--highlight-color);
+color: white;
+border-color: var(--highlight-color);
+}
+
+.btn-link {
+color: var(--accent-color);
+}
+
+#login-form {
+background-color: #61481C;
+border: 2px solid var(--highlight-color);
+padding: 20px;
+border-radius: 10px;
+}
+
+#login-form:focus-within {
+border-color: var(--accent-color);
+}

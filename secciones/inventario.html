@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='cart.png') }}" />
+  <title>Jamf Café</title>
+  <!-- Agrega el enlace al archivo CSS de Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='inventario.css') }}">
+</head>
+
+<!-- Esta es la interfaz de inventario, puedes modificarla a tu conveniencia, honeeeestamente, esta ventana 
+de inventario me da un poco igual porque en teoria deberia mostrar los ingredientes y esa mierda, y 
+se deberian restar los que se usen y todo eso, y me parece exageradamente ladilla. asi que solo mostremos
+una lista de ingredientes y ya, que se modifique la cantidad a mano y que se genere no se si un reporte o algo
+asi que se pueda imprimir para en teoría enviarla a los proveedores -->
+
+<body>
+  <header>
+    <div class="header-section container-header">
+        <img class="logo" src="{{ url_for('static', filename='jamf.png') }}" alt="">
+        <a href="{{ url_for('EmployeeScreen') }}"><button type="submit" class="btn-header">Volver</button></a>
+        <a href="{{ url_for('LoginScreen') }}"><button type="submit" class="btn-header">Cerrar sesión</button></a>
+    </div>
+  </header>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <h1 class="text-center mb-4">Catalogo</h1>
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th>ID</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Opciones</th>
+              </tr>
+             {% for p in productos %} 
+              <tr>
+                <td>{{p.product_id}}</td>
+                <td>{{p.nombre}}</td>
+                <td>{{p.precio}}</td>
+              <td>
+                <a href="{{url_for('DeleteProduct', product_id=p.product_id)}}" class="btn btn-danger btn-sm">Borrar</a>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProductModal">Editar Producto</button>
+              </td>
+              </tr>
+             {% endfor %}
+              </tbody>
+              <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="editProductModalLabel">Editar Producto</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <!-- Aquí agregamos un formulario para la edición de productos -->
+                      <form action="/EditProduct" method="POST" id="edit-product-form">
+                        <div class="form-group">
+                          <label for="product-name" class="col-form-label">Nombre del producto:</label>
+                          <input type="text" class="form-control" id="product-name" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="product-price" class="col-form-label">Precio:</label>
+                          <input type="float" class="form-control" id="product-price" name="precio" required>
+                        </div>
+                        <input type="hidden" class="form-control" id="product-id" name="id">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                          <a href="{{ url_for('EditProduct') }}">
+                            <button type="submit" class="btn btn-primary" id="save-changes-btn">Guardar Cambios</button>
+                          </a>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </table>
+          <h1 class="text-center mb-4">Inventario</h1>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+        <form  action=/AddProduct method=POST id="register-form" onsubmit="return validateForm()">
+              <tr>
+                <td><input type="text" class="form-control" name="nombre"></td>
+                <td><input type="text" class="form-control" name="precio"></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary add-button">Agregar</button>
+            <form action=/EmployeeScreen>
+                <a href="{{ url_for('EmployeeScreen') }}">
+                  <button type="button" class="btn btn-secondary return-button">Volver</button>
+                </a>
+            </form>
+        </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Event listener para el botón de agregar
+      $(".add-button").click(function() {
+        // Agregar nueva fila a la tabla
+        var newRow = $("<tr>");
+        var col1 = $("<td>").html('<input type="text" class="form-control" name="nombre">');
+        var col2 = $("<td>").html('<input type="text" class="form-control" name="precio">');
+        newRow.append(nombre, precio);
+        $("table").append(newRow);
+      })
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+body {
+    background-color: #A47E3B;
+  }
+  h1 {
+    color: #eee;
+  }
+  h3{
+    color: #eee;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .seleccionar{
+    border: #61481C solid;
+    border-radius: 10px;
+    padding: 30px 20px;
+    background-color: #BF9742;
+  }
+  select {
+    display: block; /* Ensures the select element takes up the full width available */
+    margin: 20px auto; /* Centers the select element horizontally */
+    padding: 10px 30px;
+    background-color: #d6c295;
+    color: #61481C;
+    border: #61481C solid;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: 700;
+  }
+  th{
+      color: #eee;
+  }
+  .form-control {
+    background-color: #eee;
+    color: #000;
+    border-color: #A47E3B;
+  }
+  .form-control:focus {
+    background-color: #eee;
+    color: #000;
+    border-color: #A47E3B;
+    box-shadow: none;
+  }
+  .btn-primary {
+    margin-top: 30px;
+    background-color: #E6B325;
+    border-color: #E6B325;
+    color: #61481C;
+  }
+  .btn-primary:hover {
+    background-color: #BF9742;
+    border-color: #BF9742;
+    color: #61481C;
+  }
+  .btn-secondary {
+    background-color: #61481C;
+    border-color: #61481C;
+  }
+  .btn-secondary:hover {
+    background-color: #BF9742;
+    border-color: #BF9742;
+    color: #61481C;
+  }

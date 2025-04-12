@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='cart.png') }}" />
+  <title>Jamf Café</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='pedidos_cajero.css') }}">
+</head>
+<body>
+  <header>
+    <div class="header-section container-header">
+        <img class="logo" src="{{ url_for('static', filename='jamf.png') }}" alt="">
+        <a href="{{ url_for('EmployeeScreen') }}"><button type="submit" class="btn-header">Volver</button></a>
+        <a href="{{ url_for('LoginScreen') }}"><button type="submit" class="btn-header">Cerrar sesión</button></a>
+    </div>
+  </header>
+  <h1></h1>
+
+  <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h1 class="text-center mb-4">Historial de pedidos</h1>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th>ID</th>
+              <th>Comprador</th>              
+              <th>Producto</th>
+              <th>Precio</th>
+            </tr>
+           {% for i in pedidos %} 
+            <tr>
+              <td>{{i.ID_pedido}}</td>
+              <td>{{i.cliente}}</td>
+              <td>{{i.producto}}</td>
+              <td>{{i.precio}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+</body>   
+</html>

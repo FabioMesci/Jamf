@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='cart.png') }}" />
+  <title>Jamf Café</title>
+  <!-- Agrega el enlace al archivo CSS de Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='facturacion.css') }}">
+</head>
+
+<!-- Aqui lo mismo que el inventario, se deberian mostrar los datos del pedido y los precios
+y quizas una opcion para imprimir -->
+<header>
+  <div class="header-section container-header">
+      <img class="logo" src="{{ url_for('static', filename='jamf.png') }}" alt="">
+      <a href="{{ url_for('EmployeeScreen') }}"><button type="submit" class="btn-header">Volver</button></a>
+  </div>
+</header>
+<body>
+<form action="/mostrarpedido" method="POST">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="text-center col-md-8">
+        <h1 class="mb-4">Facturación</h1>
+              <div class="seleccionar">
+              <h3>Seleccione el nombre de usuario del cliente:</h3>
+              <select name="nombre" id="nombre" required>
+                {% for nombre in nombre_clientes %}
+                    <option value="{{ nombre }}">{{ nombre }}</option>
+                {% endfor %}
+              </select>
+              </div>
+        <div class="text-center">
+          <button href="{{ url_for('mostrarpedido') }}" type="submit" class="btn btn-primary add-button">Buscar pedido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Event listener para el botón de agregar
+      $(".add-button").click(function() {
+        // Agregar nueva fila a la tabla
+        var newRow = $("<tr>");
+        var col1 = $("<td>").html('<input type="text" class="form-control" name="col1">');
+        var col2 = $("<td>").html('<input type="text" class="form-control" name="col2">');
+        newRow.append(col1, col2);
+        $("table").append(newRow);
+      })
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='cart.png') }}" />
+  <title>Jamf Café</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='pedidos_cocinero.css') }}">
+</head>
+<body>
+  <header>
+    <div class="header-section container-headerr">
+        <img class="logo" src="{{ url_for('static', filename='jamf.png') }}" alt="">
+        <a href="{{ url_for('LoginScreen') }}"><button type="submit" class="btn-header">Cerrar sesión</button></a>
+        <a href="{{ url_for('CookScreen') }}"><button type="submit" class="btn-header">Volver</button></a>
+    </div>
+</header>
+<form action="/PedidoHecho" method="POST">
+  <div class="container">
+          <h1 class="text-center mb-4">Pedidos pendientes</h1>
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th>ID</th>
+                <th>Comprador</th>              
+                <th>Producto</th>
+              </tr>
+             {% for i in pedidos_cobrados %} 
+              <tr>
+                <td>{{i.ID_pedido}}</td>
+                <td>{{i.cliente}}</td>
+                <td>{{i.pedido}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <div class="text-center">
+          <label class="text-center">Pedido hecho para:</label>
+          <select name="clientecobrado" id="nombre" required>
+            {% for nombre in nombre_clientes %}
+                <option value="{{ nombre }}">{{ nombre }}</option>
+            {% endfor %}
+          </select>
+          <button href="{{url_for('PedidoHecho')}}" type="submit" class="btn btn-success btn-sm">Marcar como hecho</button>
+        </div>
+      </div>
+
+</form>
+<body>   
+</html>

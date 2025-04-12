@@ -1,0 +1,74 @@
+header{
+    position: relative;
+    background-color: #BF9742;
+    box-shadow: 0px 0px 15px 20px #BF9742;
+    width: 100%%;
+    margin-bottom: 23px;
+}
+
+.container-header{
+    background-color: #BF9742;
+    max-width: 1200px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.container-form{
+    position: relative;
+    margin: auto;
+
+    background-color: transparent;
+    max-width: 1200px;
+    text-align: center;
+    border-radius: 10px;
+}
+.header-section{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.header-section:hover{
+    margin: 11px 5px 5px 11px;
+    transition: 0.2s;
+}
+
+.logo{
+    width: 80px;
+    height: auto;
+    cursor: pointer;
+    margin: 10px 0px 0px 10px;
+    transition: 0.2s;
+}
+
+.logo:hover{
+    width: 82px;
+    height: auto;
+    transition: 0.2s;
+}
+
+.btn-header{
+    cursor: pointer;
+    border-radius: 5px;
+    border: #BF9742;
+    color: #523c18;
+    text-transform: uppercase;
+    background-color: #BF9742;
+    padding: 7px 12px;
+    margin: 0px 0px 0px 15px;
+    transition: 0.2s;
+}
+
+
+.btn-header:hover{
+    border: 2px solid #523c18;
+    margin: 15px;
+    color: whitesmoke;
+    font-size: 17px;
+    transition: 0.2s;
+}
+
+#carrito{
+    margin-left: 20px;
+}

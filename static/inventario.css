@@ -1,0 +1,39 @@
+body {
+    background-color: #A47E3B;
+  }
+  h1 {
+    color: #eee;
+  }
+  th{
+      color: #eee;
+  }
+  .form-control {
+    background-color: #eee;
+    color: #000;
+    border-color: #A47E3B;
+  }
+  .form-control:focus {
+    background-color: #eee;
+    color: #000;
+    border-color: #A47E3B;
+    box-shadow: none;
+  }
+  .btn-primary {
+    background-color: #E6B325;
+    border-color: #E6B325;
+    color: #61481C;
+  }
+  .btn-primary:hover {
+    background-color: #BF9742;
+    border-color: #BF9742;
+    color: #61481C;
+  }
+  .btn-secondary {
+    background-color: #61481C;
+    border-color: #61481C;
+  }
+  .btn-secondary:hover {
+    background-color: #BF9742;
+    border-color: #BF9742;
+    color: #61481C;
+  }

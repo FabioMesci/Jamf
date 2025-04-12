@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="./carrito/images/cart.png" />
+  <title>Jamf Café</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='carrito_principal.css') }}">
+</head>
+<body>
+  <header>
+    <div class="header-section container-header">
+        <img class="logo" src="{{ url_for('static', filename='jamf.png') }}" alt="">
+        <a href="{{ url_for('ClientScreen') }}"><button type="submit" class="btn-header">Volver</button></a>
+        <a href="{{ url_for('LoginScreen') }}"><button type="submit" class="btn-header">Cerrar sesión</button></a>
+        <p>El ID de tu pedido es: {{ ID }}</p>
+    </div>
+</header>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h1 class="text-center mb-4">Carrito</h1>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th >ID</th>
+              <th>Comprador</th>              
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Opciones</th>
+            </tr>
+           {% for i in username %} 
+            <tr>
+              <td >{{i.tmp_id}}</td>
+              <td>{{i.comprador}}</td>
+              <td>{{i.c_producto}}</td>
+              <td>{{i.c_precio}}</td>
+            <td>
+              <a href="{{url_for('DeleteFromCart', tmp_id=i.tmp_id)}}"><button class="btn btn-danger btn-sm" type="submit">Borrar</button></a>
+            </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+</body>   
+</html>
